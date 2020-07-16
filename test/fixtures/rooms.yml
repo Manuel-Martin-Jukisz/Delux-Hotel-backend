@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  img: MyString
+  max_guest: MyString
+  price: 1
+  available_rooms: 1
+  type: 
+
+two:
+  img: MyString
+  max_guest: MyString
+  price: 1
+  available_rooms: 1
+  type: 
