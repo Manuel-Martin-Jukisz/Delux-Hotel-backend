@@ -1,5 +1,14 @@
 class ReservationsController < ApplicationController
     skip_before_action :authorized
+    def index
+      @reservations = Reservation.all
+      render json: @reservations
+    end
+
+    def show
+      @reservation = Reservation.find(params[:id])
+      render json: @reservation
+    end
     
     def create
         @reservation = Reservation.create(reservation_params)
@@ -7,7 +16,6 @@ class ReservationsController < ApplicationController
         if @reservation.valid?
             render json: @reservation
           else
-            # redirect_to "http://localhost:3000/login"
             render json: { error: 'You must login to book a room' }, status: :not_acceptable
           end
     end

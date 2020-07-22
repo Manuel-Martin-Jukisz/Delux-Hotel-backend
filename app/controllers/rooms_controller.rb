@@ -8,10 +8,11 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
+    render json: @room
   end
-  
+
   def create
-    @room = User.create(user_params)
+    @room = Room.create(room_params)
     if @room.save 
       render json: @room, status: :created, location: @room
     else
@@ -21,6 +22,6 @@ class RoomsController < ApplicationController
 
   private
   def room_params
-    params.require(:room).permit(:room_id, :user_id, :check_in, :check_out)
+    params.require(:room).permit(:room_id, :user_id, :name, :price)
   end
 end
